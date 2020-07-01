@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="cricket.js"></script>
+    <style>
+        button{
+            background-color: blue;
+            color: white;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron text-center" style="height: 10px;">
+        <h1>Welcome to my Cricket Game</h1> 
+    </div>
+    
+    <div class="row container-fluid">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <button class="btn btn-primary btnCenter" onclick="Team1.team_total.call(Team1)">TEAM 1 SCORE</button>
+                <h3 id="score1" class="textCenter"></h3>
+                <button class="btn btn-primary btnCenter" onclick="Team1.start_playing.call(Team1)"> PLAY TEAM1</button>
+                <button class="btn btn-primary btnCenter" onclick="Team1.get_runs.call(Team1)">HIT 1</button>
+                <table class="table table-bordered" id="team1">
+                    <tr>
+                        <th>TEAM 1</th>
+                        <th>B1</th>
+                        <th>B2</th>
+                        <th>B3</th>
+                        <th>B4</th>
+                        <th>B5</th>
+                        <th>B6</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td>Player 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 4</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 5</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 6</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 7</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 8</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 9</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 10</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <button class="btn btn-primary btnCenter">TIMER</button>
+                <h3 id="timer" class="textCenter"></h3>
+                <button class="btn btn-primary btnCenter" onclick="generate_result()">GENERATE RESULT</button>
+                <h5 id="won" class="textCenter"></h5>
+                <h5 id="mom" class="textCenter"></h5>
+                    
+            </div>
+            
+
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        
+                <button class="btn btn-primary btnCenter" onclick="Team2.team_total.call(Team2)">Team 2 SCORE</button>
+                <h3 id="score2"></h3>
+                <button class="btn btn-primary btnCenter" onclick="Team2.start_playing.call(Team2)">PLAY TEAM2</button>
+                <button class="btn btn-primary btnCenter" onclick="Team2.get_runs.call(Team2)">HIT 2</button>
+                <table class="table table-bordered" id="team2">
+                    <tr>
+                        <th>TEAM 1</th>
+                        <th>B1</th>
+                        <th>B2</th>
+                        <th>B3</th>
+                        <th>B4</th>
+                        <th>B5</th>
+                        <th>B6</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td>Player 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 4</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 5</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 6</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 7</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 8</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 9</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Player 10</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+
+
+    
+    
+
+
+</body>
