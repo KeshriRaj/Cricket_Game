@@ -11,6 +11,7 @@ class Team {
     j = 0;
     start=false;
     stop=false;
+    check_play=false;
     Team_total = 0;
     once=true;
     top_scorer={run:0,Player_Id:"",total:0};
@@ -23,6 +24,7 @@ class Team {
 
 
     start_playing = () => {
+        this.check_play=true;
         setTimeout(() => {
             console.log(3)
             setTimeout(() => {
@@ -74,6 +76,7 @@ class Team {
                 
                 console.log(" Total Runs = ",this.TeamList[this.i].total_run);
                 this.TeamList[this.i].total_run+=this.TeamList[this.i].player[this.j];
+                table_val.rows[this.i+1].cells[col].innerHTML=(this.TeamList[this.i].total_run).toString();
                 if(this.top_scorer.run<this.TeamList[this.i].total_run)
                 {
                 this.top_scorer.run=Math.max(this.top_scorer.run,this.TeamList[this.i].total_run);
@@ -85,7 +88,6 @@ class Team {
             else {
                 this.Team_total+=this.TeamList[this.i].player[this.j];
                 this.TeamList[this.i].total_run+=this.TeamList[this.i].player[this.j];
-                table_val.rows[this.i+1].cells[col].innerHTML=(this.TeamList[this.i].total_run).toString();
                 console.log("  Total Runs = ",this.TeamList[this.i].total_run);
                 this.j++;
             }
@@ -93,12 +95,15 @@ class Team {
         else{
             if(!this.stop && !this.start)
             {
-                alert("Match will start in 3 seconds ........")
+                if(this.check_play)
+                alert("Match will start in 3 seconds ........");
+                else
+                alert("Please press the PLAY TEAM1 or PLAY TEAM2");
             }
             else
             {
             this.start=false;
-            alert("Match is Over");
+            alert("Cannot Hit as Match is Over");
             }
         }
         this.team_total();
@@ -167,13 +172,20 @@ let maxTeam1=Team1.top_scorer;
 let maxTeam2=Team2.top_scorer;
 
 
+let query=-1;
 var generate_result=()=>{
    let px=true;
     console.log(team2_total.total);
     if(Number(team1_total.total)>Number(team2_total.total)&&team1_total.total!=0 && team2_total.total!=0)
+    {
     document.getElementById("won").innerHTML="MATCH WON BY TEAM1 ";
+    query=1;
+    }
     else if(Number(team1_total.total)<Number(team2_total.total)&&team1_total.total!=0 && team2_total.total!=0)
+    {
     document.getElementById("won").innerHTML="MATCH WON BY TEAM2 ";
+    query=2;
+    }
     else if(Number(team1_total.total)==Number(team2_total.total)&&team1_total.total!=0)
     document.getElementById("won").innerHTML="MATCH DRAW ";
     else
@@ -198,8 +210,12 @@ var generate_result=()=>{
         document.getElementById("mom").innerHTML="Man of the Match : "+ maxTeam2.Player_Id+ " Team 2 Score:"+ maxTeam2.run;
     }
     else{
+        if(query==1)
         document.getElementById("mom").innerHTML="Man of the Match : "+ maxTeam1.Player_Id+ " Team 1 Score:"+maxTeam1.run;
-        document.getElementById("mom").innerHTML="Man of the Match : "+ maxTeam2.Player_Id+ " Team 1 Score:"+maxTeam2.run;
+        else if(query==2)
+        document.getElementById("mom").innerHTML="Man of the Match : "+ maxTeam2.Player_Id+ " Team 2 Score:"+maxTeam2.run;
+        else
+        document.getElementById("mom").innerHTML="Man of the Match : "+ maxTeam1.Player_Id+ " Team 1 Score:"+maxTeam1.run+`</br>`+"Man of the Match : "+ maxTeam2.Player_Id+ " Team 2 Score:"+maxTeam2.run;
     }
 }   
 
