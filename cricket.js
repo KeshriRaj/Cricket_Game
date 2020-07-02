@@ -173,3 +173,6 @@ var generate_result = function () {
         }
     }
 };
+var refresh = function () {
+    window.location.reload();
+};

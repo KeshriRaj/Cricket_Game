@@ -174,6 +174,7 @@ let maxTeam2=Team2.top_scorer;
 
 let query=-1;
 var generate_result=()=>{
+    
    let px=true;
     console.log(team2_total.total);
     if(Number(team1_total.total)>Number(team2_total.total)&&team1_total.total!=0 && team2_total.total!=0)
@@ -220,6 +221,6 @@ var generate_result=()=>{
 }   
 
 }
-
-
-
+let refresh=()=>{
+    window.location.reload();
+}
