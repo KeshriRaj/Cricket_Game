@@ -10,25 +10,47 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="cricket.js"></script>
     <style>
+        table th {
+            font-size: 10px;
+            font-weight: 900;
+            padding: 5px !important;
+            height: px;;
+            border: 1px solid black !important;
+        }
         button{
             background-color: blue;
             color: white;
             border-radius: 4px;
         }
+        .btnCenter {
+            padding: 3px !important;
+            font-size: 13px !important;
+            margin-left: 45%;
+            margin-bottom: 10%;
+        }
+        .textCenter{
+            text-align: center;
+        }
+        @media only screen and (min-width: 200px) and (max-width: 490px) {
+            .resultBtn {
+                margin-left: 25%;
+                font-size: 8px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="jumbotron text-center" style="height: 10px;">
-        <h1>Welcome to my Cricket Game</h1> 
+    <div>
+        <h1 style="text-align: center; background-color: blue;color: white;border-radius: 10px;display: block;margin: 10px;;">Welcome to my Cricket Game</h1> 
     </div>
     
     <div class="row container-fluid">
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <button class="btn btn-primary btnCenter" onclick="Team1.team_total.call(Team1)">TEAM 1 SCORE</button>
                 <h3 id="score1" class="textCenter"></h3>
-                <button class="btn btn-primary btnCenter" onclick="Team1.start_playing.call(Team1)"> PLAY TEAM1</button>
-                <button class="btn btn-primary btnCenter" onclick="Team1.get_runs.call(Team1)">HIT 1</button>
+                <button style="margin-left: 190px;"class="btn btn-primary btnCenter" onclick="Team1.start_playing.call(Team1)"> PLAY TEAM1</button>
+                <button style="margin-left: 2px;" class="btn btn-primary btnCenter" onclick="Team1.get_runs.call(Team1)  ">HIT 1</button>
                 <table class="table table-bordered" id="team1">
                     <tr>
                         <th>TEAM 1</th>
@@ -145,7 +167,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <button class="btn btn-primary btnCenter">TIMER</button>
                 <h3 id="timer" class="textCenter"></h3>
-                <button class="btn btn-primary btnCenter" onclick="generate_result()">GENERATE RESULT</button>
+                <button style="margin-left: 190px;" class="btn btn-primary btnCenter" onclick="generate_result()">GENERATE RESULT</button>
                 <h5 id="won" class="textCenter"></h5>
                 <h5 id="mom" class="textCenter"></h5>
                     
@@ -156,8 +178,8 @@
         
                 <button class="btn btn-primary btnCenter" onclick="Team2.team_total.call(Team2)">Team 2 SCORE</button>
                 <h3 id="score2"></h3>
-                <button class="btn btn-primary btnCenter" onclick="Team2.start_playing.call(Team2)">PLAY TEAM2</button>
-                <button class="btn btn-primary btnCenter" onclick="Team2.get_runs.call(Team2)">HIT 2</button>
+                <button style="margin-left: 190px;" class="btn btn-primary btnCenter" onclick="Team2.start_playing.call(Team2)">PLAY TEAM2</button>
+                <button class="btn btn-primary btnCenter" style="margin-left: 2px;" onclick="Team2.get_runs.call(Team2)">HIT 2</button>
                 <table class="table table-bordered" id="team2">
                     <tr>
                         <th>TEAM 1</th>
